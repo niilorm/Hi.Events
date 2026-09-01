@@ -9,6 +9,7 @@ use HiEvents\Http\Actions\Accounts\UpdateAccountAction;
 use HiEvents\Http\Actions\Admin\Accounts\GetAccountAction as GetAdminAccountAction;
 use HiEvents\Http\Actions\Admin\Accounts\GetAllAccountsAction as GetAllAdminAccountsAction;
 use HiEvents\Http\Actions\Admin\Accounts\UpdateAccountMessagingTierAction;
+use HiEvents\Http\Actions\Admin\Accounts\UpdateAccountVerificationAction;
 use HiEvents\Http\Actions\Admin\Announcements\CreateAnnouncementAction;
 use HiEvents\Http\Actions\Admin\Announcements\DeleteAnnouncementAction;
 use HiEvents\Http\Actions\Admin\Announcements\GetAllAnnouncementsAction;
@@ -104,10 +105,10 @@ use HiEvents\Http\Actions\EventOccurrences\CreateEventOccurrenceAction;
 use HiEvents\Http\Actions\EventOccurrences\DeleteEventOccurrenceAction;
 use HiEvents\Http\Actions\EventOccurrences\DeletePriceOverrideAction;
 use HiEvents\Http\Actions\EventOccurrences\GenerateOccurrencesAction;
-use HiEvents\Http\Actions\EventOccurrences\GetOccurrenceGenerationStatusAction;
 use HiEvents\Http\Actions\EventOccurrences\GetEventOccurrenceAction;
 use HiEvents\Http\Actions\EventOccurrences\GetEventOccurrencesAction;
 use HiEvents\Http\Actions\EventOccurrences\GetEventOccurrencesPublicAction;
+use HiEvents\Http\Actions\EventOccurrences\GetOccurrenceGenerationStatusAction;
 use HiEvents\Http\Actions\EventOccurrences\GetPriceOverridesAction;
 use HiEvents\Http\Actions\EventOccurrences\GetProductVisibilityAction;
 use HiEvents\Http\Actions\EventOccurrences\ReactivateOccurrenceAction;
@@ -125,6 +126,7 @@ use HiEvents\Http\Actions\Events\GetOrganizerEventsPublicAction;
 use HiEvents\Http\Actions\Events\Images\CreateEventImageAction;
 use HiEvents\Http\Actions\Events\Images\DeleteEventImageAction;
 use HiEvents\Http\Actions\Events\Images\GetEventImagesAction;
+use HiEvents\Http\Actions\Events\Stats\GetEventCountsAction;
 use HiEvents\Http\Actions\Events\Stats\GetEventStatsAction;
 use HiEvents\Http\Actions\Events\UpdateEventAction;
 use HiEvents\Http\Actions\Events\UpdateEventLocationAction;
@@ -406,6 +408,7 @@ $router->middleware(['auth:api'])->group(
 
         // Stats
         $router->get('/events/{event_id}/stats', GetEventStatsAction::class);
+        $router->get('/events/{event_id}/counts', GetEventCountsAction::class);
 
         // Email Templates - Event level
         $router->get('/events/{eventId}/email-templates', GetEventEmailTemplatesAction::class);
@@ -574,6 +577,9 @@ $router->prefix('/admin')->middleware(['auth:api'])->group(
         $router->get('/messaging-tiers', GetMessagingTiersAction::class);
         $router->put('/accounts/{account_id}/messaging-tier', UpdateAccountMessagingTierAction::class);
 
+        // Account Verification
+        $router->put('/accounts/{account_id}/verification', UpdateAccountVerificationAction::class);
+
         // Account Deletion Requests
         $router->get('/deletion-requests', GetAllAccountDeletionRequestsAction::class);
         $router->post('/accounts/{account_id}/deletion-request', AdminRequestAccountDeletionAction::class);
@@ -622,7 +628,8 @@ $router->prefix('/public')->group(
             ->middleware('throttle:10,1');
 
         // Promo codes
-        $router->get('/events/{event_id}/promo-codes/{promo_code}', GetPromoCodePublic::class);
+        $router->get('/events/{event_id}/promo-codes/{promo_code}', GetPromoCodePublic::class)
+            ->middleware('throttle:10,1');
 
         // Stripe payment gateway
         $router->post('/events/{event_id}/order/{order_short_id}/stripe/payment_intent', CreatePaymentIntentActionPublic::class);
