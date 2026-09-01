@@ -39,9 +39,11 @@ class OrganizerResource extends JsonResource
                 value: fn () => new OrganizerSettingsResource($this->getOrganizerSettings())
             ),
             $this->mergeWhen(
-                config('app.saas_mode_enabled') && $this->getOrganizerStripePlatforms() !== null,
+                (! config('app.saas_mode_enabled') && filled(config('services.stripe.secret_key')))
+                    || (config('app.saas_mode_enabled') && $this->getOrganizerStripePlatforms() !== null),
                 fn () => [
-                    'stripe_connect_setup_complete' => $this->isStripeSetupComplete(),
+                    'stripe_connect_setup_complete' => ! config('app.saas_mode_enabled')
+                        || $this->isStripeSetupComplete(),
                     'stripe_account_id' => $this->getActiveStripeAccountId(),
                 ],
             ),
