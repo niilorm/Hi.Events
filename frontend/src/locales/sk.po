@@ -12106,11 +12106,7 @@ msgstr "Miesto aktualizované pre {count} termín(ov)"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "Aktualizuje sa počas vytvárania pravidla. Prelistujte mesiace a skontrolujte termíny."
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "Aktualizuje sa počas písania."
 

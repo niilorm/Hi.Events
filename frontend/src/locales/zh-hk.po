@@ -12106,11 +12106,7 @@ msgstr "已更新 {count} 個日期的地點"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "隨規則建立即時更新。翻閱月份以核對日期。"
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "輸入時即時更新。"
 

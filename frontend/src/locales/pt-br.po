@@ -12106,11 +12106,7 @@ msgstr "Local atualizado em {count} data(s)"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "Atualiza conforme você monta a regra. Navegue pelos meses para conferir as datas."
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "Atualiza conforme você digita."
 
