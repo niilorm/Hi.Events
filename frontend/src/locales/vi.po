@@ -12106,11 +12106,7 @@ msgstr "Đã cập nhật địa điểm cho {count} ngày"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "Cập nhật khi bạn tạo quy tắc. Lật qua các tháng để kiểm tra ngày."
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "Cập nhật khi bạn nhập."
 

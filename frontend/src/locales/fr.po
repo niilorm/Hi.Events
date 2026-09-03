@@ -12106,11 +12106,7 @@ msgstr "Lieu mis à jour pour {count} date(s)"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "Se met à jour pendant que vous créez la règle. Parcourez les mois pour vérifier les dates."
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "Mise à jour au fil de la saisie."
 

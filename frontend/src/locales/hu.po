@@ -12106,11 +12106,7 @@ msgstr "Helyszín frissítve {count} időpontnál"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "A szabály összeállítása közben frissül. Lapozza át a hónapokat a dátumok ellenőrzéséhez."
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "Gépelés közben frissül."
 

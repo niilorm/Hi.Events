@@ -12107,11 +12107,7 @@ msgstr "Locatie bijgewerkt voor {count} datum(s)"
 msgid "Updates as you build the rule. Flip through months to sanity-check dates."
 msgstr "Wordt bijgewerkt terwijl je de regel opbouwt. Blader door de maanden om de datums te controleren."
 
-<<<<<<< HEAD
-#: src/components/forms/ProductForm/ProductPreview.tsx:101
-=======
 #: src/components/forms/ProductForm/ProductPreview.tsx:100
->>>>>>> origin/develop
 msgid "Updates as you type."
 msgstr "Wordt bijgewerkt terwijl je typt."
 
